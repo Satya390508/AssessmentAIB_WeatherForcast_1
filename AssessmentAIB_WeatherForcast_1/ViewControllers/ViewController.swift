@@ -18,9 +18,16 @@ class ViewController: UIViewController {
 		WebServiceHandler().getCityList();
 		// TODO: - Need to show list of cities received from server
 		
+		
+		
 		// Testing the forcast API
-		WebServiceHandler().getWeatherForcastForCity(cityID: Int64(KURL_TEST_CITYID));
+		WebServiceHandler().getWeatherForcastForCity(cityID: Int64(KURL_TEST_CITYID), successHandler: { (forcastObj) in
+			// TODO: Add details view
+			print("Parsing data successfull ===> \(forcastObj)")
+		}) { (errorMessage) in
+			// TODO: Add Appropriate Alert
+			print("Error occured for forcast ===> \(errorMessage)")
+		}
 	}
-
 }
 

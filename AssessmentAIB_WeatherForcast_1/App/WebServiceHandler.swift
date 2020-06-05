@@ -39,7 +39,7 @@ class WebServiceHandler {
 		dlTask.resume()
 	}
 	
-	func getWeatherForcastForCity(cityID: Int64) {
+	func getWeatherForcastForCity(cityID: Int64, successHandler: @escaping (CollectionModel)->(), failureHandler: @escaping (String)->()) {
 		
 		var urlComponents = URLComponents()
 		urlComponents.scheme = KURL_BASE_FORCAST_SCHEME
@@ -55,8 +55,23 @@ class WebServiceHandler {
 		let session = URLSession(configuration: sessionConfig)
 		let task = session.dataTask(with: urlComponents.url!) { (receivedData, recievedResponse, error) in
 			
-// TODO: - Handle the forcast data received from the API
 			print("City ID Based Url data length => \(receivedData!.count)")
+			if let jsonData = receivedData, jsonData.count > 0 {
+				// Data received successfully
+				
+				do {
+					// Parsing the data
+					let forcastCollectionObj = try JSONDecoder().decode(CollectionModel.self, from: jsonData)
+					successHandler(forcastCollectionObj)
+				}
+				catch {
+					print(error)
+					failureHandler(error.localizedDescription)
+				}
+			}
+			else {
+				failureHandler("Failed to fetch forcast details")
+			}
 		}
 		task.resume()
 	}
