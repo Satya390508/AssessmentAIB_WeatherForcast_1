@@ -14,6 +14,8 @@
 		93E107DD248A559900DB3908 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93E107DB248A559900DB3908 /* LaunchScreen.storyboard */; };
 		93E107E8248A559A00DB3908 /* AssessmentAIB_WeatherForcast_1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E107E7248A559A00DB3908 /* AssessmentAIB_WeatherForcast_1Tests.swift */; };
 		93E107F3248A559A00DB3908 /* AssessmentAIB_WeatherForcast_1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E107F2248A559A00DB3908 /* AssessmentAIB_WeatherForcast_1UITests.swift */; };
+		93E10805248A5A8A00DB3908 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E10804248A5A8A00DB3908 /* AppConstants.swift */; };
+		93E10809248A5C7100DB3908 /* WebServiceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E10808248A5C7100DB3908 /* WebServiceHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		93E107EE248A559A00DB3908 /* AssessmentAIB_WeatherForcast_1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssessmentAIB_WeatherForcast_1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93E107F2248A559A00DB3908 /* AssessmentAIB_WeatherForcast_1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentAIB_WeatherForcast_1UITests.swift; sourceTree = "<group>"; };
 		93E107F4248A559A00DB3908 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93E10804248A5A8A00DB3908 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		93E10808248A5C7100DB3908 /* WebServiceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				93E107D0248A559800DB3908 /* AppDelegate.swift */,
+				93E10804248A5A8A00DB3908 /* AppConstants.swift */,
+				93E10808248A5C7100DB3908 /* WebServiceHandler.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -289,7 +295,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				93E107D5248A559800DB3908 /* ViewController.swift in Sources */,
+				93E10805248A5A8A00DB3908 /* AppConstants.swift in Sources */,
 				93E107D1248A559800DB3908 /* AppDelegate.swift in Sources */,
+				93E10809248A5C7100DB3908 /* WebServiceHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

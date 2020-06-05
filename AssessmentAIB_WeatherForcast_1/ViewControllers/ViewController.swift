@@ -13,8 +13,14 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
+		
+		// Testing the cityList API
+		WebServiceHandler().getCityList();
+		// TODO: - Need to show list of cities received from server
+		
+		// Testing the forcast API
+		WebServiceHandler().getWeatherForcastForCity(cityID: Int64(KURL_TEST_CITYID));
 	}
-
 
 }
 
