@@ -99,13 +99,10 @@
 		93E107CF248A559800DB3908 /* AssessmentAIB_WeatherForcast_1 */ = {
 			isa = PBXGroup;
 			children = (
-				93E107D0248A559800DB3908 /* AppDelegate.swift */,
-				93E107D2248A559800DB3908 /* SceneDelegate.swift */,
-				93E107D4248A559800DB3908 /* ViewController.swift */,
-				93E107D6248A559800DB3908 /* Main.storyboard */,
-				93E107D9248A559900DB3908 /* Assets.xcassets */,
-				93E107DB248A559900DB3908 /* LaunchScreen.storyboard */,
-				93E107DE248A559900DB3908 /* Info.plist */,
+				93E10803248A55E400DB3908 /* App */,
+				93E10802248A55DA00DB3908 /* ViewControllers */,
+				93E10801248A55CE00DB3908 /* Storyboards */,
+				93E10800248A55C000DB3908 /* Resources */,
 			);
 			path = AssessmentAIB_WeatherForcast_1;
 			sourceTree = "<group>";
@@ -126,6 +123,41 @@
 				93E107F4248A559A00DB3908 /* Info.plist */,
 			);
 			path = AssessmentAIB_WeatherForcast_1UITests;
+			sourceTree = "<group>";
+		};
+		93E10800248A55C000DB3908 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				93E107D9248A559900DB3908 /* Assets.xcassets */,
+				93E107DE248A559900DB3908 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		93E10801248A55CE00DB3908 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				93E107D6248A559800DB3908 /* Main.storyboard */,
+				93E107DB248A559900DB3908 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		93E10802248A55DA00DB3908 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				93E107D4248A559800DB3908 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		93E10803248A55E400DB3908 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				93E107D0248A559800DB3908 /* AppDelegate.swift */,
+				93E107D2248A559800DB3908 /* SceneDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -435,7 +467,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = AssessmentAIB_WeatherForcast_1/Info.plist;
+				INFOPLIST_FILE = AssessmentAIB_WeatherForcast_1/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -452,7 +484,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = AssessmentAIB_WeatherForcast_1/Info.plist;
+				INFOPLIST_FILE = AssessmentAIB_WeatherForcast_1/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
