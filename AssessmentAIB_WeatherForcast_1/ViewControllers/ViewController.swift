@@ -15,18 +15,38 @@ class ViewController: UIViewController {
 		// Do any additional setup after loading the view.
 		
 		// Testing the cityList API
-		WebServiceHandler().getCityList();
-		// TODO: - Need to show list of cities received from server
-		
+		WebServiceHandler().getCityList { (cityList, errorMsg) in
+			if errorMsg != nil {
+				// TODO: Add Appropriate Alert
+				print(errorMsg!);
+			}
+			
+			if let cityList = cityList, cityList.count > 0 {
+				// TODO: - Show list of cities received from server
+				print("City List Parsing completed => \(cityList.count)")
+			}
+			else {
+				// TODO: Add Appropriate Alert
+				print("Empty List Received");
+			}
+		}
 		
 		
 		// Testing the forcast API
-		WebServiceHandler().getWeatherForcastForCity(cityID: Int64(KURL_TEST_CITYID), successHandler: { (forcastObj) in
-			// TODO: Add details view
-			print("Parsing data successfull ===> \(forcastObj)")
-		}) { (errorMessage) in
-			// TODO: Add Appropriate Alert
-			print("Error occured for forcast ===> \(errorMessage)")
+		WebServiceHandler().getWeatherForcastForCity(cityID: Int64(KURL_TEST_CITYID)) { (forecastCollection, errorMsg) in
+			if errorMsg != nil {
+				// TODO: Add Appropriate Alert
+				print(errorMsg!);
+			}
+			
+			if let forecastObj = forecastCollection {
+				// TODO: - Show details of forcast for the city received from server
+				print("City Forecast Details are => \(forecastObj)")
+			}
+			else {
+				// TODO: Add Appropriate Alert
+				print("No forecast Received for City ");
+			}
 		}
 	}
 }

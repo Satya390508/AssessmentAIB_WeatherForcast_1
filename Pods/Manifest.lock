@@ -1,0 +1,20 @@
+PODS:
+  - GzipSwift (5.1.1)
+  - ReachabilitySwift (5.0.0)
+
+DEPENDENCIES:
+  - GzipSwift
+  - ReachabilitySwift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - GzipSwift
+    - ReachabilitySwift
+
+SPEC CHECKSUMS:
+  GzipSwift: 893f3e48e597a1a4f62fafcb6514220fcf8287fa
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+
+PODFILE CHECKSUM: 59eeac58d14024df70ae364b7017df64e4b082f3
+
+COCOAPODS: 1.5.3
