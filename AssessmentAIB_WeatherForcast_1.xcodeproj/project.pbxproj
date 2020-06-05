@@ -18,6 +18,7 @@
 		93E10809248A5C7100DB3908 /* WebServiceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E10808248A5C7100DB3908 /* WebServiceHandler.swift */; };
 		93E10811248A6EDC00DB3908 /* ForcastModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E10810248A6EDC00DB3908 /* ForcastModels.swift */; };
 		93E10815248A8AD400DB3908 /* CityModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E10814248A8AD400DB3908 /* CityModels.swift */; };
+		93E10817248AA4FD00DB3908 /* CityListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E10816248AA4FD00DB3908 /* CityListTVC.swift */; };
 		985B5A58994637146F201DB6 /* Pods_AssessmentAIB_WeatherForcast_1UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086ECFBF031BC67B44239711 /* Pods_AssessmentAIB_WeatherForcast_1UITests.framework */; };
 		CA265308CB1B5D4C7169D6D3 /* Pods_AssessmentAIB_WeatherForcast_1Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5614AB38933049115544128E /* Pods_AssessmentAIB_WeatherForcast_1Tests.framework */; };
 		E90723E8FFDA509E5447861B /* Pods_AssessmentAIB_WeatherForcast_1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C785ED7BE8375D86080FA11 /* Pods_AssessmentAIB_WeatherForcast_1.framework */; };
@@ -66,6 +67,7 @@
 		93E10808248A5C7100DB3908 /* WebServiceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceHandler.swift; sourceTree = "<group>"; };
 		93E10810248A6EDC00DB3908 /* ForcastModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcastModels.swift; sourceTree = "<group>"; };
 		93E10814248A8AD400DB3908 /* CityModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityModels.swift; sourceTree = "<group>"; };
+		93E10816248AA4FD00DB3908 /* CityListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListTVC.swift; sourceTree = "<group>"; };
 		9C785ED7BE8375D86080FA11 /* Pods_AssessmentAIB_WeatherForcast_1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AssessmentAIB_WeatherForcast_1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				93E107D4248A559800DB3908 /* ViewController.swift */,
+				93E10816248AA4FD00DB3908 /* CityListTVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				93E10805248A5A8A00DB3908 /* AppConstants.swift in Sources */,
 				93E107D1248A559800DB3908 /* AppDelegate.swift in Sources */,
 				93E10815248A8AD400DB3908 /* CityModels.swift in Sources */,
+				93E10817248AA4FD00DB3908 /* CityListTVC.swift in Sources */,
 				93E10809248A5C7100DB3908 /* WebServiceHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
