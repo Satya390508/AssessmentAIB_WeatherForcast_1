@@ -21,6 +21,7 @@
 		93E1081A248AACAB00DB3908 /* ForecastTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E10819248AACAB00DB3908 /* ForecastTVCell.swift */; };
 		93E1081C248AAD9300DB3908 /* ForecastVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E1081B248AAD9300DB3908 /* ForecastVC.swift */; };
 		93E1081E248B91A300DB3908 /* UITableView+EmptyDataMessgae.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E1081D248B91A300DB3908 /* UITableView+EmptyDataMessgae.swift */; };
+		93E10820248BD5B900DB3908 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 93E1081F248BD5B900DB3908 /* Readme.md */; };
 		985B5A58994637146F201DB6 /* Pods_AssessmentAIB_WeatherForcast_1UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086ECFBF031BC67B44239711 /* Pods_AssessmentAIB_WeatherForcast_1UITests.framework */; };
 		CA265308CB1B5D4C7169D6D3 /* Pods_AssessmentAIB_WeatherForcast_1Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5614AB38933049115544128E /* Pods_AssessmentAIB_WeatherForcast_1Tests.framework */; };
 		E90723E8FFDA509E5447861B /* Pods_AssessmentAIB_WeatherForcast_1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C785ED7BE8375D86080FA11 /* Pods_AssessmentAIB_WeatherForcast_1.framework */; };
@@ -72,6 +73,7 @@
 		93E10819248AACAB00DB3908 /* ForecastTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastTVCell.swift; sourceTree = "<group>"; };
 		93E1081B248AAD9300DB3908 /* ForecastVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastVC.swift; sourceTree = "<group>"; };
 		93E1081D248B91A300DB3908 /* UITableView+EmptyDataMessgae.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+EmptyDataMessgae.swift"; sourceTree = "<group>"; };
+		93E1081F248BD5B900DB3908 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		9C785ED7BE8375D86080FA11 /* Pods_AssessmentAIB_WeatherForcast_1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AssessmentAIB_WeatherForcast_1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -116,6 +118,7 @@
 		93E107C4248A559800DB3908 = {
 			isa = PBXGroup;
 			children = (
+				93E1081F248BD5B900DB3908 /* Readme.md */,
 				93E107CF248A559800DB3908 /* AssessmentAIB_WeatherForcast_1 */,
 				93E107E6248A559A00DB3908 /* AssessmentAIB_WeatherForcast_1Tests */,
 				93E107F1248A559A00DB3908 /* AssessmentAIB_WeatherForcast_1UITests */,
@@ -344,6 +347,7 @@
 			files = (
 				93E107DD248A559900DB3908 /* LaunchScreen.storyboard in Resources */,
 				93E107DA248A559900DB3908 /* Assets.xcassets in Resources */,
+				93E10820248BD5B900DB3908 /* Readme.md in Resources */,
 				93E107D8248A559800DB3908 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
