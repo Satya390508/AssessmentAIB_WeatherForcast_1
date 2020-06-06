@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import  Reachability
+import JGProgressHUD
 
 class CityListTVC: UITableViewController {
 	
 	var cityList = [CityModel]()
-	
+	let reachabilityObj = try! Reachability()
+	let loadingHud = JGProgressHUD(style: .dark)
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -85,9 +89,17 @@ class CityListTVC: UITableViewController {
 	
 	// MARK: - TableView Delegate Methods
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		if reachabilityObj.connection == .unavailable {
+			self.showAlert(title: KTITLE_NetworkError, message: KMSG_NetworkError+KMSG_SelectCityAgain)
+			return
+		}
+
 		let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "ForecastVC") as!  ForecastVC
 		detailVC.cityID = cityList[indexPath.row].id
-		self.present(detailVC, animated: true, completion: nil)
+		detailVC.cityName = cityList[indexPath.row].name
+		DispatchQueue.main.async {
+			self.present(detailVC, animated: true, completion: nil)
+		}
 	}
 	
 	/*
@@ -102,8 +114,18 @@ class CityListTVC: UITableViewController {
 	
 	// MARK: - Custom Methods
 	func refreshTableData() {
+		if reachabilityObj.connection == .unavailable {
+			self.showAlert(title: KTITLE_NetworkError, message: KMSG_NetworkError+KMSG_RetryCityList, shouldTryAgain: true)
+			return
+		}
 		
+		self.loadingHud.textLabel.text = "Loading..."
+		self.loadingHud.show(in: self.view)
 		WebServiceHandler().getCityList { (cityList, errorMsg) in
+			DispatchQueue.main.async {
+				self.loadingHud.dismiss()
+			}
+			
 			if errorMsg != nil {
 				// TODO: Add Appropriate Alert
 				print(errorMsg!);
@@ -121,6 +143,22 @@ class CityListTVC: UITableViewController {
 				// TODO: Add Appropriate Alert
 				print("Empty List Received");
 			}
+		}
+	}
+	
+	func showAlert(title:String?, message: String, shouldTryAgain: Bool = false) {
+		let alert = UIAlertController(title: title ?? "", message: message, preferredStyle: .alert)
+		let cancelAction = UIAlertAction(title:shouldTryAgain ? "Cancel" : "Ok", style: .cancel, handler: nil)
+		alert.addAction(cancelAction)
+		
+		if shouldTryAgain {
+			let retryAction = UIAlertAction(title: "Try again", style: .default) { (retryAction) in
+				self.refreshTableData()
+			}
+			alert.addAction(retryAction)
+		}
+		DispatchQueue.main.async {
+			self.present(alert, animated: false, completion: nil)
 		}
 	}
 }

@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 class ForecastVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	
 	var cityID: Int64?
+	var cityName: String?
 	var forecastCollectionObj: CollectionModel?
-	
-	
+	let loadingHud = JGProgressHUD(style: .dark)
+
 	@IBOutlet weak var lbl_count: UILabel!
 	@IBOutlet weak var tableView: UITableView!
 
@@ -42,7 +44,13 @@ class ForecastVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 			self.present(alert, animated: true, completion: nil)
 		}
 		else {
+			self.loadingHud.textLabel.text = "Loading..."
+			self.loadingHud.show(in: self.view)
 			WebServiceHandler().getWeatherForcastForCity(cityID: self.cityID!) { (receivedForecast, errorMsg) in
+				DispatchQueue.main.async {
+					self.loadingHud.dismiss()
+				}
+
 				if errorMsg != nil {
 					// TODO: Add Appropriate Alert
 					print(errorMsg!);
@@ -53,7 +61,7 @@ class ForecastVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 					
 					// Populate Forecast Collection in UIs
 					DispatchQueue.main.async {
-						self.lbl_count.text = "Total forecasts loaded : \(self.forecastCollectionObj!.cnt)"
+						self.lbl_count.text = "Total forecasts loaded : \(self.forecastCollectionObj!.cnt) for \(self.cityName ?? "N/A")"
 						self.tableView.isHidden = false
 						self.tableView.reloadData()
 					}
@@ -85,11 +93,7 @@ class ForecastVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return self.forecastCollectionObj?.cnt ?? 0
 	}
-	
-	//	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-	//		return (self.collectionObj != nil) ? 270 : 0
-	//	}
-	
+
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let tftvCell = tableView.dequeueReusableCell(withIdentifier: "ForecastTVCell", for: indexPath) as! ForecastTVCell
 		

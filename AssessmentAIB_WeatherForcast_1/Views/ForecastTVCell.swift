@@ -46,7 +46,7 @@ class ForecastTVCell: UITableViewCell {
 		
 		self.lbl_Pressure.text = "Pressure : \(forecast.main?.pressure ?? 0)"
 		self.lbl_SeaLevel.text = "Sea Level : \(forecast.main?.sea_level ?? 0)"
-		self.lbl_GrndLevel.text = "Ground Levle : \(forecast.main?.grnd_level ?? 0)"
+		self.lbl_GrndLevel.text = "Ground Level : \(forecast.main?.grnd_level ?? 0)"
 		self.lbl_Humidity.text = "Max : \(forecast.main?.humidity ?? 0)"
 	}
 

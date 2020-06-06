@@ -1,20 +1,24 @@
 PODS:
   - GzipSwift (5.1.1)
+  - JGProgressHUD (2.1)
   - ReachabilitySwift (5.0.0)
 
 DEPENDENCIES:
   - GzipSwift
+  - JGProgressHUD
   - ReachabilitySwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - GzipSwift
+    - JGProgressHUD
     - ReachabilitySwift
 
 SPEC CHECKSUMS:
   GzipSwift: 893f3e48e597a1a4f62fafcb6514220fcf8287fa
+  JGProgressHUD: aa403e9a5b45cae98903c4600cccdd98c0c3ec90
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
 
-PODFILE CHECKSUM: 59eeac58d14024df70ae364b7017df64e4b082f3
+PODFILE CHECKSUM: 47261169871fcb1dca7ee95d91fb48f60ea8b5d6
 
 COCOAPODS: 1.5.3

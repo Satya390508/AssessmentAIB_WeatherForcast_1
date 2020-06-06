@@ -9,6 +9,7 @@ target 'AssessmentAIB_WeatherForcast_1' do
 	
 	pod 'GzipSwift'
 	pod 'ReachabilitySwift'
+	pod 'JGProgressHUD'
 	
 	
 	target 'AssessmentAIB_WeatherForcast_1Tests' do
