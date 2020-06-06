@@ -49,26 +49,26 @@ class ForecastVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 			WebServiceHandler().getWeatherForcastForCity(cityID: self.cityID!) { (receivedForecast, errorMsg) in
 				DispatchQueue.main.async {
 					self.loadingHud.dismiss()
-				}
-
-				if errorMsg != nil {
-					// TODO: Add Appropriate Alert
-					print(errorMsg!);
-				}
-				
-				if let forecastCollection = receivedForecast, forecastCollection.cnt > 0 {
-					self.forecastCollectionObj = forecastCollection
 					
-					// Populate Forecast Collection in UIs
-					DispatchQueue.main.async {
+					self.tableView.isHidden = false
+					if errorMsg != nil {
+						// Instead of using Alert, used the table view background view to show the error message
+						self.tableView.setEmptyMessage(errorMsg!)
+						return
+					}
+					
+					if let forecastCollection = receivedForecast, forecastCollection.cnt > 0 {
+						self.forecastCollectionObj = forecastCollection
+						
+						// Populate Forecast Collection in UIs
 						self.lbl_count.text = "Total forecasts loaded : \(self.forecastCollectionObj!.cnt) for \(self.cityName ?? "N/A")"
-						self.tableView.isHidden = false
+						self.tableView.restore()
 						self.tableView.reloadData()
 					}
-				}
-				else {
-					// TODO: Add Appropriate Alert
-					print("Empty Forecast Received");
+					else {
+						// Instead of using Alert, used the table view background view to show the error message
+						self.tableView.setEmptyMessage(KMSG_Forecast_Empty)
+					}
 				}
 			}
 		}

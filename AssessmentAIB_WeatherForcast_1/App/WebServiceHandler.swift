@@ -34,7 +34,7 @@ class WebServiceHandler {
 				}
 			}
 			
-			if let downloadedData = try? Data(contentsOf: receivedUrl!) {
+			if let receivedUrl = receivedUrl,  let downloadedData = try? Data(contentsOf: receivedUrl) {
 				if downloadedData.isGzipped {
 					// Unzip the compressed file
 					do {

@@ -14,8 +14,8 @@ class CityListTVC: UITableViewController {
 	
 	var cityList = [CityModel]()
 	let reachabilityObj = try! Reachability()
-	let loadingHud = JGProgressHUD(style: .dark)
-
+//	let loadingHud = JGProgressHUD(style: .dark) // Removing hud from this VC as the same info is updated via pull to refresh control
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -25,9 +25,9 @@ class CityListTVC: UITableViewController {
 		// Uncomment the following line to display an Edit button in the navigation bar for this view controller.
 		// self.navigationItem.rightBarButtonItem = self.editButtonItem
 		
-		self.tableView.tableFooterView = UIView() // To remove unwanted empty cell at the bottom of table
-		
-		self.refreshTableData()
+		self.refreshControl?.addTarget(self, action: #selector(refreshTableData), for: .valueChanged)
+		self.tableView.setEmptyMessage(KMSG_CityList_NoData+KMSG_PullToRefresh)
+//		self.refreshTableData() // Commented the first time use to avoid overlapping of Webservice calls
 	}
 	
 	// MARK: - Table view data source
@@ -52,43 +52,14 @@ class CityListTVC: UITableViewController {
 		return cell
 	}
 	
-	/*
-	// Override to support conditional editing of the table view.
-	override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-	// Return false if you do not want the specified item to be editable.
-	return true
-	}
-	*/
-	
-	/*
-	// Override to support editing the table view.
-	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-	if editingStyle == .delete {
-	// Delete the row from the data source
-	tableView.deleteRows(at: [indexPath], with: .fade)
-	} else if editingStyle == .insert {
-	// Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-	}
-	}
-	*/
-	
-	/*
-	// Override to support rearranging the table view.
-	override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-	
-	}
-	*/
-	
-	/*
-	// Override to support conditional rearranging of the table view.
-	override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-	// Return false if you do not want the item to be re-orderable.
-	return true
-	}
-	*/
-	
 	// MARK: - TableView Delegate Methods
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
+		if self.refreshControl!.isRefreshing {
+			self.showAlert(title: "Selection Error!", message: "Can not process this request now as the city list is being updated")
+			return
+		}
+		
 		if reachabilityObj.connection == .unavailable {
 			self.showAlert(title: KTITLE_NetworkError, message: KMSG_NetworkError+KMSG_SelectCityAgain)
 			return
@@ -113,52 +84,53 @@ class CityListTVC: UITableViewController {
 	*/
 	
 	// MARK: - Custom Methods
-	func refreshTableData() {
+	@objc func refreshTableData() {
 		if reachabilityObj.connection == .unavailable {
-			self.showAlert(title: KTITLE_NetworkError, message: KMSG_NetworkError+KMSG_RetryCityList, shouldTryAgain: true)
+			self.showAlert(title: KTITLE_NetworkError, message: KMSG_CityList_failed+KMSG_NetworkError)
 			return
 		}
 		
-		self.loadingHud.textLabel.text = "Loading..."
-		self.loadingHud.show(in: self.view)
+//		self.loadingHud.textLabel.text = "Loading..."
+//		self.loadingHud.show(in: self.view)
 		WebServiceHandler().getCityList { (cityList, errorMsg) in
 			DispatchQueue.main.async {
-				self.loadingHud.dismiss()
-			}
-			
-			if errorMsg != nil {
-				// TODO: Add Appropriate Alert
-				print(errorMsg!);
-			}
-			
-			if let cityList = cityList, cityList.count > 0 {
-				// Show/Update list of cities received from server
-				print("City List Parsing completed => \(cityList.count)")
-				self.cityList = cityList
-				DispatchQueue.main.async {
+//				self.loadingHud.dismiss()
+				if self.refreshControl!.isRefreshing {
+					self.refreshControl!.endRefreshing()
+				}
+				
+				if errorMsg != nil {
+					// Instead of using Alert, used the table view background view to show the error message
+					// This way, We can ask the user to pull to refresh
+					self.tableView.setEmptyMessage(errorMsg!+KMSG_PullToRefresh)
+					return
+				}
+				
+				if let cityList = cityList, cityList.count > 0 {
+					// Show/Update list of cities received from server
+					print("City List Parsing completed => \(cityList.count)")
+					self.cityList = cityList
+					self.tableView.restore()
 					self.tableView.reloadData()
 				}
-			}
-			else {
-				// TODO: Add Appropriate Alert
-				print("Empty List Received");
+				else {
+					// Instead of using Alert, used the table view background view to show the empty message
+					// This way, We can ask the user to pull to refresh
+					self.tableView.setEmptyMessage(KMSG_CityList_Empty + KMSG_PullToRefresh)
+				}
 			}
 		}
 	}
 	
-	func showAlert(title:String?, message: String, shouldTryAgain: Bool = false) {
-		let alert = UIAlertController(title: title ?? "", message: message, preferredStyle: .alert)
-		let cancelAction = UIAlertAction(title:shouldTryAgain ? "Cancel" : "Ok", style: .cancel, handler: nil)
-		alert.addAction(cancelAction)
+	func showAlert(title:String?, message: String) {
 		
-		if shouldTryAgain {
-			let retryAction = UIAlertAction(title: "Try again", style: .default) { (retryAction) in
-				self.refreshTableData()
-			}
-			alert.addAction(retryAction)
-		}
-		DispatchQueue.main.async {
+		DispatchQueue.main.async {			
+			let alert = UIAlertController(title: title ?? "", message: message, preferredStyle: .alert)
+			let cancelAction = UIAlertAction(title:"Ok", style: .cancel, handler: nil)
+			alert.addAction(cancelAction)
+			
 			self.present(alert, animated: false, completion: nil)
 		}
 	}
 }
+

@@ -22,6 +22,14 @@ let KURL_KEY_APPID = "appid" // Example: &appid=KURL_APPID
 
 // Error Message related constants
 let KTITLE_NetworkError = "Network Error!"
-let KMSG_NetworkError = "Please check your internet Connection.\n"
-let KMSG_RetryCityList = "Try again or relaunch the application to see the list of cities available for forecast."
+let KMSG_CityList_failed = "Failed to fetch city list. "
+let KMSG_NetworkError = "Please check your internet Connection and try again later.\n"
 let KMSG_SelectCityAgain = "Select a city again to see the forecast."
+
+// Messages related to empty data received
+	// CityList
+let  KMSG_PullToRefresh = "\n\nPlease swipe down to refresh the city list"
+let  KMSG_CityList_NoData = "City list is not available now"
+let  KMSG_CityList_Empty = "Received city list is Empty"
+	// Forcast Detail
+let KMSG_Forecast_Empty = "Received Forecast data is empty"
