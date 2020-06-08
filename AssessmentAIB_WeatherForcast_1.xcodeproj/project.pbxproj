@@ -53,7 +53,7 @@
 		5C090D1981EB868A4FC1A742 /* Pods-AssessmentAIB_WeatherForcast_1UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssessmentAIB_WeatherForcast_1UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AssessmentAIB_WeatherForcast_1UITests/Pods-AssessmentAIB_WeatherForcast_1UITests.release.xcconfig"; sourceTree = "<group>"; };
 		74BE128FFF06B1F79684AA63 /* Pods-AssessmentAIB_WeatherForcast_1Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssessmentAIB_WeatherForcast_1Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AssessmentAIB_WeatherForcast_1Tests/Pods-AssessmentAIB_WeatherForcast_1Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		8F09D6359E3680D7F23C1E0B /* Pods-AssessmentAIB_WeatherForcast_1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssessmentAIB_WeatherForcast_1.release.xcconfig"; path = "Pods/Target Support Files/Pods-AssessmentAIB_WeatherForcast_1/Pods-AssessmentAIB_WeatherForcast_1.release.xcconfig"; sourceTree = "<group>"; };
-		93E107CD248A559800DB3908 /* AssessmentAIB_WeatherForcast_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssessmentAIB_WeatherForcast_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93E107CD248A559800DB3908 /* 5 Day Weather Forcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "5 Day Weather Forcast.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93E107D0248A559800DB3908 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93E107D7248A559800DB3908 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		93E107D9248A559900DB3908 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 		93E107CE248A559800DB3908 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				93E107CD248A559800DB3908 /* AssessmentAIB_WeatherForcast_1.app */,
+				93E107CD248A559800DB3908 /* 5 Day Weather Forcast.app */,
 				93E107E3248A559A00DB3908 /* AssessmentAIB_WeatherForcast_1Tests.xctest */,
 				93E107EE248A559A00DB3908 /* AssessmentAIB_WeatherForcast_1UITests.xctest */,
 			);
@@ -256,7 +256,7 @@
 			);
 			name = AssessmentAIB_WeatherForcast_1;
 			productName = AssessmentAIB_WeatherForcast_1;
-			productReference = 93E107CD248A559800DB3908 /* AssessmentAIB_WeatherForcast_1.app */;
+			productReference = 93E107CD248A559800DB3908 /* 5 Day Weather Forcast.app */;
 			productType = "com.apple.product-type.application";
 		};
 		93E107E2248A559A00DB3908 /* AssessmentAIB_WeatherForcast_1Tests */ = {
@@ -657,7 +657,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "SatyaranjanMohapatra.AssessmentAIB-WeatherForcast-1";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "5 Day Weather Forcast";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -675,7 +675,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "SatyaranjanMohapatra.AssessmentAIB-WeatherForcast-1";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "5 Day Weather Forcast";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
